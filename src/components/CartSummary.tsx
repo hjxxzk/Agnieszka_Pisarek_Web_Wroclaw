@@ -15,6 +15,12 @@ interface CartSummaryProps {
 }
 
 const CartSummary: React.FC<CartSummaryProps> = ({ cartItems, calculatePrice, totalPrice }) => {
+
+    function placeOrder() {
+        localStorage.setItem("order", JSON.stringify(cartItems));
+        window.location.href = "/order-confirmation.html";
+    }
+
     return (
         <div>
             <h1>Podsumowanie:</h1>
@@ -32,7 +38,7 @@ const CartSummary: React.FC<CartSummaryProps> = ({ cartItems, calculatePrice, to
             <Link to="/cart">
                 <button>Przejdź do koszyka</button>
             </Link>
-            <button>Złóż zamówienie!</button>
+            <button onClick={placeOrder}>Złóż zamówienie!</button>
         </div>
     );
 }
