@@ -1,6 +1,7 @@
 import './App.css'
 import ProductList from "./components/ProductList.tsx";
 import Cart from "./components/Cart.tsx";
+import CartSummary from "./components/CartSummary.tsx";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {useState} from "react";
 
@@ -74,6 +75,7 @@ function App() {
                                                    decreaseQuantity={handleDecreaseQuantity}
                                                    calculatePrice={calculatePrice}
                                                    totalPrice={calculateTotalPrice()}/>}/>
+                <Route path="/summary" element={<CartSummary />}></Route>
             </Routes>
         </Router>
     );
