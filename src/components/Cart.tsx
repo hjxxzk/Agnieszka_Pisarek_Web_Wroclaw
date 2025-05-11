@@ -13,9 +13,12 @@ interface CartProps {
     removeFromCart: (id: number) => void;
     increaseQuantity: (id: number) => void;
     decreaseQuantity: (id: number) => void;
+    calculatePrice: (id: number) => number;
+    totalPrice: string;
+
 }
 
-const Cart: React.FC<CartProps> = ({cartItems, removeFromCart, increaseQuantity, decreaseQuantity}) => {
+const Cart: React.FC<CartProps> = ({cartItems, removeFromCart, increaseQuantity, decreaseQuantity, calculatePrice, totalPrice}) => {
     return (
         <div>
             <h1>Twój koszyk</h1>
@@ -25,6 +28,7 @@ const Cart: React.FC<CartProps> = ({cartItems, removeFromCart, increaseQuantity,
                     <li key={item.id}>
                         <h2>{item.name}</h2>
                         <p>Cena: {item.price} zł</p>
+                        <p>Suma częściowa: {calculatePrice(item.id).toFixed(2)} zł</p>
                         <div className="container">
                             <button onClick={() => decreaseQuantity(item.id)}>-</button>
                             <p>{item.quantity}</p>
@@ -37,6 +41,8 @@ const Cart: React.FC<CartProps> = ({cartItems, removeFromCart, increaseQuantity,
             ) : (
                 <p>Twój koszyk jest pusty!</p>
             )}
+
+            <h1>Suma: {totalPrice} zł</h1>
             <Link to="/">
                 <button>Powrót</button>
             </Link>

@@ -53,6 +53,17 @@ function App() {
         ));
     }
 
+    function calculatePrice(id: number): number {
+        const item = cartItems.find(item => item.id === id);
+        return item ? parseFloat(item.price) * item.quantity : 0;
+    }
+
+    function calculateTotalPrice(): string {
+        let totalPrice = 0;
+        cartItems.forEach(item => { totalPrice += calculatePrice(item.id) });
+        return totalPrice.toFixed(2);
+    }
+
     return (
         <Router>
             <Routes>
@@ -60,7 +71,9 @@ function App() {
                 <Route path="/cart" element={<Cart cartItems={cartItems}
                                                    removeFromCart={handleRemoveFromCart}
                                                    increaseQuantity={handleIncreaseQuantity}
-                                                   decreaseQuantity={handleDecreaseQuantity}/>}/>
+                                                   decreaseQuantity={handleDecreaseQuantity}
+                                                   calculatePrice={calculatePrice}
+                                                   totalPrice={calculateTotalPrice()}/>}/>
             </Routes>
         </Router>
     );
