@@ -10,9 +10,10 @@ interface CartItem {
 
 interface CartProps {
     cartItems: CartItem[];
+    removeFromCart: (id: number) => void;
 }
 
-const Cart: React.FC<CartProps> = ({cartItems}) => {
+const Cart: React.FC<CartProps> = ({cartItems, removeFromCart}) => {
     return (
         <div>
             <h1>Twój koszyk</h1>
@@ -22,6 +23,7 @@ const Cart: React.FC<CartProps> = ({cartItems}) => {
                     <li key={item.id}>
                         <h2>{item.name}</h2>
                         <p>Cena: {item.price} zł</p>
+                        <button onClick={() => removeFromCart(item.id)}>Usuń z koszyka</button>
                     </li>
                     ))}
                 </ul>

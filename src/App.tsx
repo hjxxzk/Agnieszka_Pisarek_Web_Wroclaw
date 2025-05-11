@@ -27,11 +27,15 @@ function App() {
         });
     };
 
+    const handleRemoveFromCart = (id: number) => {
+        setCartItems(cartItems.filter(item => item.id !== id));
+    }
+
   return (
       <Router>
         <Routes>
           <Route path="/" element={<ProductList addToCart={ handleAddToCart }/>} />
-          <Route path="/cart" element={<Cart cartItems={cartItems}/>} />
+          <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={ handleRemoveFromCart }/>} />
         </Routes>
       </Router>
   );
