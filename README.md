@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# Online Shop Simplified
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Short summary
 
-Currently, two official plugins are available:
+The idea for the shop is pretty simple. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* The application is divided into separate components, each representing an element of the shop: Product, Product List, Cart, and Cart Summary.
+* The ProductList component is responsible for displaying products fetched from a products.json file. This can easily be replaced with a request to a backend or an API in the future.
+* The entire app is governed by App.tsx, where the cart state is managed globally and shared across components. This ensures that the cart retains its state, no matter which page the user is on.
+* After placing an order, users are redirected to the Order Confirmation page. The cart is reset and another order can be made.
 
-## Expanding the ESLint configuration
+Website is easily expandable. We can add new elements and css to make it pretty and elegant. 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to run?
+First, you need to clone the repo. You can use the following command:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+git clone https://github.com/hjxxzk/Agnieszka_Pisarek_Web_Wroclaw.git
+```
+Then navigate into the project directory and install the dependencies using:
+
+```
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Now you can run the development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+npm run dev
+```
+The website should now be running locally at ```http://localhost```.
