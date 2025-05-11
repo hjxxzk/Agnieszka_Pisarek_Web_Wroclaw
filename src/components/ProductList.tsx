@@ -1,6 +1,7 @@
 import React from 'react';
 import products from '../data/products.json';
 import Product from './Product.tsx';
+import {Link} from "react-router-dom";
 
 interface ProductType {
     id: number;
@@ -24,6 +25,9 @@ const ProductList: React.FC = () => {
                     />
                 ))}
             </ul>
+            <Link to="/cart">
+                <button>Przejdź do koszyka</button>
+            </Link>
         </div>
     );
 }
