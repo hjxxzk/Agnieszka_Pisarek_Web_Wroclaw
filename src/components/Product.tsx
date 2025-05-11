@@ -1,16 +1,19 @@
 import React from 'react';
 
 interface ProductProps {
+    id: number,
     name: string,
     price: string
+    addToCart: (product: { id: number, name: string, price: string }) => void
 }
 
-const Product: React.FC<ProductProps> = (props) => {
+const Product: React.FC<ProductProps> = ({ id, name, price, addToCart }) => {
     return (
         <div className="product">
-            <h2>{ props.name }</h2>
-            <p>Cena: { props.price } zł</p>
-            <button className="addToCartButton">Dodaj do koszyka</button>
+            <h2>{ name }</h2>
+            <p>Cena: { price } zł</p>
+            <button className="addToCartButton"
+                    onClick={() => addToCart({ id, name, price })} >Dodaj do koszyka</button>
         </div>
     );
 }

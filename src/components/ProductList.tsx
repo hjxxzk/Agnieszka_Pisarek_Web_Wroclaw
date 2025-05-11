@@ -12,7 +12,11 @@ interface ProductType {
     };
 }
 
-const ProductList: React.FC = () => {
+interface ProductListProps {
+    addToCart: (product: { id: number; name: string; price: string }) => void;
+}
+
+const ProductList: React.FC<ProductListProps> = ({ addToCart }) => {
     return (
         <div>
             <h1>Lista Produktów</h1>
@@ -20,8 +24,10 @@ const ProductList: React.FC = () => {
                 {products.map((product: ProductType) => (
                     <Product
                         key={product.id}
+                        id={product.id}
                         name={product.name}
                         price={`${product.price.main}.${product.price.fractional}`}
+                        addToCart={addToCart}
                     />
                 ))}
             </ul>
