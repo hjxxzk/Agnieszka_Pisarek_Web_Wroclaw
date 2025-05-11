@@ -75,7 +75,9 @@ function App() {
                                                    decreaseQuantity={handleDecreaseQuantity}
                                                    calculatePrice={calculatePrice}
                                                    totalPrice={calculateTotalPrice()}/>}/>
-                <Route path="/summary" element={<CartSummary />}></Route>
+                <Route path="/summary" element={<CartSummary cartItems={cartItems}
+                                                             calculatePrice={calculatePrice}
+                                                             totalPrice={calculateTotalPrice()}/>}></Route>
             </Routes>
         </Router>
     );

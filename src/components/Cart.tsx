@@ -47,7 +47,7 @@ const Cart: React.FC<CartProps> = ({
                         ))}
                     </ul>
                     <Link to="/summary">
-                        <button>Złóż zamówienie</button>
+                        <button>Przejdź do podsumowania</button>
                     </Link>
                 </div>
             ) : (
