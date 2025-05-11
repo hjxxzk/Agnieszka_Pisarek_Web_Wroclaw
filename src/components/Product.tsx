@@ -9,11 +9,10 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ id, name, price, addToCart }) => {
     return (
-        <div className="product">
+        <div>
             <h2>{ name }</h2>
             <p>Cena: { price } zł</p>
-            <button className="addToCartButton"
-                    onClick={() => addToCart({ id, name, price })} >Dodaj do koszyka</button>
+            <button onClick={() => addToCart({ id, name, price })} >Dodaj do koszyka</button>
         </div>
     );
 }
