@@ -18,7 +18,7 @@ const CartSummary: React.FC<CartSummaryProps> = ({ cartItems, calculatePrice, to
 
     function placeOrder() {
         localStorage.setItem("order", JSON.stringify(cartItems));
-        window.location.href = "/order-confirmation.html";
+        window.location.href = "/Agnieszka_Pisarek_Web_Wroclaw/order-confirmation.html";
     }
 
     return (

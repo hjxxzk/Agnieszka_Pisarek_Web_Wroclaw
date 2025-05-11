@@ -66,7 +66,7 @@ function App() {
     }
 
     return (
-        <Router>
+        <Router basename="/Agnieszka_Pisarek_Web_Wroclaw">
             <Routes>
                 <Route path="/" element={<ProductList addToCart={handleAddToCart}/>}/>
                 <Route path="/cart" element={<Cart cartItems={cartItems}
